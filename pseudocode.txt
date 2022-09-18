@@ -3,6 +3,28 @@ STORE "int-j" AS INTEGER WITH 0
 STORE "int-k" AS INTEGER WITH 0
 STORE "int-l" AS INTEGER WITH 0
 
+DO
 STORE "string_kegiatan" AS STRING WITH ANY VALUE
 STORE "boolean_urgent" AS BOOLEAN WITH ANY VALUE
 STORE "boolean_important" AS BOOLEAN WITH ANY VALUE
+
+
+    IF "boolean_urgent" EQUAL "true" && "boolean_important" EQUAL "true"
+        STORE "Urgent_Important[i]" AS ARRAY WITH "string_kegiatan"
+        ADD "int-i" WITH 1
+
+    ELSE IF "boolean_urgent" EQUAL "false" && "boolean_important" EQUAL "true"
+        STORE "NotUrgent_Important[j]" AS ARRAY WITH "string_kegiatan"
+        ADD "int-j" WITH 1
+
+    ELSE IF "boolean_urgent" EQUAL "true" && "boolean_important" EQUAL "false"
+        STORE "Urgent_NotImportant[k]" AS ARRAY WITH "string_kegiatan"
+        ADD "int-k" WITH 1
+
+    ELSE IF "boolean_urgent" EQUAL "false" && "boolean_important" EQUAL "false"
+        STORE "NotUrgent_NotImportant[l]" AS ARRAY WITH "string_kegiatan"
+        ADD "int-l" WITH 1
+
+    STORE "boolean_lanjut" AS BOOLEAN WITH ANY VALUE
+WHILE "boolean_lanjut" EQUAL "true"
+
