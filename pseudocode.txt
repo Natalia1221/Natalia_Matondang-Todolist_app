@@ -28,3 +28,31 @@ STORE "boolean_important" AS BOOLEAN WITH ANY VALUE
     STORE "boolean_lanjut" AS BOOLEAN WITH ANY VALUE
 WHILE "boolean_lanjut" EQUAL "true"
 
+
+STORE "int-n" AS INTEGER WITH 0
+
+FOR "int-n" LESS THAN EQUAL TO "int-i"
+    WRITE "Urgent_Important[int-n]"
+    ADD "int-n" WITH 1
+END FOR 
+
+STORE "int-n" AS INTEGER WITH 0
+
+FOR "int-n" LESS THAN EQUAL TO "int-j"
+    WRITE "NotUrgent_Important[int-n]"
+    ADD "int-n" WITH 1
+END FOR 
+
+STORE "int-n" AS INTEGER WITH 0
+
+FOR "int-n" LESS THAN EQUAL TO "int-k"
+    WRITE "Urgent_NotImportant[int-n]"
+    ADD "int-n" WITH 1
+END FOR 
+
+STORE "int-n" AS INTEGER WITH 0
+
+FOR "int-n" LESS THAN EQUAL TO "int-l"
+    WRITE "NotUrgent_NotImportant[int-n]"
+    ADD "int-n" WITH 1    
+END FOR 
